@@ -1,9 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-// import { StyleSheet, Text, View } from 'react-native';
 import Router from './router'
+import store from './redux/store'
+import { Provider } from 'react-redux'
 
 export default function App() {
   return (
-    <Router/>
+    <Provider store={store}>
+      <Router/>
+    </Provider>
   );
 }

@@ -1,6 +1,7 @@
 import { Component } from "react"
 import { Shadow } from 'react-native-shadow-2';
-import { StyleSheet, TextInput } from "react-native";
+import { TextInput } from "react-native";
+import styles from "./style";
 
 export default class Input extends Component {
   constructor(props) {
@@ -28,16 +29,16 @@ export default class Input extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  input: {
-    backgroundColor: "white",
-    padding: 20,
-    borderRadius: 15,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+//   input: {
+//     backgroundColor: "white",
+//     padding: 20,
+//     borderRadius: 15,
+//   },
+// });

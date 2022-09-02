@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Shadow } from "react-native-shadow-2";
-import { StyleSheet, TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
+import styles from "./style";
 
 export default class Btn extends Component {
   constructor(props) {
@@ -24,25 +25,7 @@ export default class Btn extends Component {
             {title}
             </Text>
         </TouchableOpacity>
-        {/* <Button
-          {...buttonProps}
-          onPress={onPress}
-          style={[styles.input, { ...buttonStyles }]}
-        /> */}
       </Shadow>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#d6f2ff",
-    padding: 20,
-    borderRadius: 15,
-  },
-  text: {
-    // fontSize: 30,
-    // color: 'white',
-    // backgroundColor: 'white'
-  }
-});
