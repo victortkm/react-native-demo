@@ -22,7 +22,6 @@ export default class Input extends Component {
           onChangeText={onChangeText}
           style={[styles.input, {...textInputStyles}]}
           value={val}
-          keyboardType="numeric"
         />
       </Shadow>
     );

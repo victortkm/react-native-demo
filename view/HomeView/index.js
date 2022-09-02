@@ -3,6 +3,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar'
 import { connect, bindActionCreators  } from 'react-redux'
 import { increment, decrement, incrementByAmount } from '../../redux/settings'
+import { useTheme } from '@react-navigation/native';
 class HomeView extends Component{
   
   constructor(props){
@@ -24,6 +25,9 @@ class HomeView extends Component{
   }
 
   render(){
+    const { theme } = this.props;
+
+    console.log(theme, 'hihihi')
     return(
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!{ this.props.homeVal }</Text>

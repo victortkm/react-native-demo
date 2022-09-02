@@ -14,7 +14,15 @@ export default function Router() {
         <Stack.Screen
           name="Home"
           component={HomeView}
-          options={{ title: "Welcome" }}
+          options={{ title: "Welcome",
+          // headerStyle: {
+          //   backgroundColor: '#f4511e',
+          // },
+          // headerTintColor: '#fff',
+          // headerTitleStyle: {
+          //   fontWeight: 'bold',
+          // },
+        }}
         />
         <Stack.Screen
           name="Profile"
