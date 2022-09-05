@@ -1,9 +1,11 @@
 import { Component } from "react"
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar'
-import { connect, bindActionCreators  } from 'react-redux'
+import { connect } from 'react-redux'
 import { increment, decrement, incrementByAmount } from '../../redux/settings'
 import { useTheme } from '@react-navigation/native';
+import Constants from "../../util/Constants";
+
 class HomeView extends Component{
   
   constructor(props){
@@ -14,10 +16,13 @@ class HomeView extends Component{
   }
 
   componentDidUpdate = () => {
+    // const { theme } = this.props;
+
+    // console.log(theme, 'hihihi')
   }
 
   onClick = () => {
-    this.props.navigation.navigate('Profile')
+    this.props.navigation.navigate(Constants.Stack.Profile)
   }
 
   onLog = () => {
@@ -25,9 +30,6 @@ class HomeView extends Component{
   }
 
   render(){
-    const { theme } = this.props;
-
-    console.log(theme, 'hihihi')
     return(
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!{ this.props.homeVal }</Text>
