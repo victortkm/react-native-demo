@@ -1,9 +1,10 @@
 import { Component } from "react"
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import { Button, TextInput } from "../../components";
 import { StatusBar } from 'expo-status-bar'
 import { connect } from 'react-redux'
-import { increment, decrement, incrementByAmount } from '../../redux/settings'
-import { useTheme } from '@react-navigation/native';
+import { increment, decrement, incrementByAmount, changeTheme } from '../../redux/settings'
+import { themes } from "../../styles/themes";
 import Constants from "../../util/Constants";
 
 class HomeView extends Component{
@@ -12,6 +13,7 @@ class HomeView extends Component{
     console.log(props)
     super(props);
     this.state = {
+      textinput: ''
     }
   }
 
@@ -29,13 +31,40 @@ class HomeView extends Component{
     this.props.increment();
   }
 
+  onChangeTheme = () => {
+    // console.log(this.props.mode)
+
+    if(this.props.mode == 'white'){
+      this.props.changeTheme('black');
+    } else if(this.props.mode == 'black'){
+      this.props.changeTheme('blue');
+    } else {
+      this.props.changeTheme('white');
+    }
+  }
+
+  onChangeInput = (val) => {
+    this.setState({ textinput: val })
+  }
+
   render(){
     return(
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!{ this.props.homeVal }</Text>
+    <View style={themes[this.props.mode].container}>
+      <Text>{ this.props.homeVal }</Text>
       <StatusBar style="auto" />
+      <Button
+        onPress={this.onChangeTheme}
+        title="Change Theme!"
+        accessibilityLabel="Learn more about this purple button"
+      />
       <Button title="Log" onPress={() => this.onLog()}/>
-      <Button title="Hi" onPress={() => this.onClick()}/>
+      <Button title="To Profile" onPress={() => this.onClick()}/>
+      <TextInput
+        onChangeText={(val)=>{this.onChangeInput(val)}}
+        value={this.state.number}
+        textInputProps={{placeholder: "placeholder", editable: true}}
+        textInputStyles={{}}
+      />
     </View>
     )
   }
@@ -43,23 +72,18 @@ class HomeView extends Component{
 
 function mapStateToProps(state) {
   const { settings } = state
-  console.log(settings, settings.value)
-  return { homeVal: settings.value }
+  // console.log(settings, settings.value)
+  return { 
+    homeVal: settings.value,
+    mode: settings.mode
+  }
 }
 
 const mapDispatchToProps = {
   increment,
   decrement,
-  incrementByAmount
+  incrementByAmount,
+  changeTheme
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeView);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

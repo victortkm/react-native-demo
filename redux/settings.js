@@ -4,7 +4,7 @@ export const settingSlice = createSlice({
   name: 'settings',
   initialState: {
     value: 0,
-    mode: 1
+    mode: 'white'
   },
   reducers: {
     increment: state => {
@@ -19,10 +19,13 @@ export const settingSlice = createSlice({
     },
     incrementByAmount: (state, action) => {
       state.value += action.payload
+    },
+    changeTheme: (state, action) => {
+      state.mode = action.payload
     }
-  }
+  },
 })
 
-export const { increment, decrement, incrementByAmount } = settingSlice.actions
+export const { increment, decrement, incrementByAmount, changeTheme } = settingSlice.actions
 
 export default settingSlice.reducer

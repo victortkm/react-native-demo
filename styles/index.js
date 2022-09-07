@@ -1,8 +1,13 @@
-import { StyleSheet } from "react-native";
-
 export const Colors = {
   white: '#FFFFFF',
-  lightblue: '#7481C6'
+  lightgrayblue: '#7481C6',
+  darkgrayblue: '#48517d',
+  lightgrey: '#cfcfcf',
+  grey: '#828282',
+  grey2: "#6b6b6b",
+  navgray: '#ededed',
+  darkgrey: '#424242',
+  black: '#000000',
 }
 
 export const FontSize = {
@@ -30,14 +35,3 @@ export const FontStyle = {
   normal: { fontStyle: "normal" },
   italic: { fontStyle: "italic" },
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  }
-});
-
-export default styles;

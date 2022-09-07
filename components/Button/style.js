@@ -3,14 +3,14 @@ import styles, { FontSize, Colors } from "../../styles";
 
 const style = StyleSheet.create({
   button: {
-    backgroundColor: Colors.lightblue,
-    padding: 20,
+    backgroundColor: Colors.grey2,
+    padding: 15,
     borderRadius: 15,
   },
   text: {
-    fontSize: 30,
+    fontSize: FontSize.size20,
     // fontFamily: this.FontStyle.bold,
-    color: Colors.white,
+    color: Colors.black,
   }
 });
 

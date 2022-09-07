@@ -1,26 +1,30 @@
-import { Component } from "react"
-import { Shadow } from 'react-native-shadow-2';
+import { Component } from "react";
+import { Shadow } from "react-native-shadow-2";
 import { TextInput } from "react-native";
 import styles from "./style";
+import { connect } from "react-redux";
+import { themes } from "../../styles/themes";
 
-export default class Input extends Component {
+class Input extends Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = {};
   }
 
   render() {
-    
-    const { val, shadowProps, textInputProps, textInputStyles, onChangeText } = this.props
+    const { val, shadowProps, textInputProps, textInputStyles, onChangeText } =
+      this.props;
 
     return (
-      <Shadow
-        {...shadowProps}
-        offset={[0, 5]}>
+      <Shadow {...shadowProps} offset={[0, 5]}>
         <TextInput
           {...textInputProps}
           onChangeText={onChangeText}
-          style={[styles.input, {...textInputStyles}]}
+          style={[
+            styles.input,
+            { ...themes[this.props.theme].input },
+            { ...textInputStyles },
+          ]}
           value={val}
         />
       </Shadow>
@@ -28,16 +32,11 @@ export default class Input extends Component {
   }
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#fff",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   input: {
-//     backgroundColor: "white",
-//     padding: 20,
-//     borderRadius: 15,
-//   },
-// });
+function mapStateToProps(state) {
+  const { settings } = state;
+  return {
+    theme: settings.mode,
+  };
+}
+
+export default connect(mapStateToProps, null)(Input);
